@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全球问卷数据收集</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- 引入Tailwind CSS，一个实用的样式框架 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* 为手机优化的一些额外样式 */
+        input, select, textarea, button {
+            font-size: 16px !important; /* 防止iOS浏览器自动缩放 */
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen p-4">
+    <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden p-6 my-8">
+        <h1 class="text-2xl font-bold text-center text-gray-800 mb-2">📋 全球用户问卷</h1>
+        <p class="text-gray-600 text-center text-sm mb-6">填写后，数据将直接下载到您的设备。</p>
+
+        <form id="surveyForm">
+            <!-- 姓名 -->
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-medium mb-2" for="name">
+                    姓名 / 昵称 *
+                </label>
+                <input class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                       type="text" id="name" name="name" required placeholder="请输入">
+            </div>
+
+            <!-- 邮箱 -->
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-medium mb-2" for="email">
+                    电子邮箱 *
+                </label>
+                <input class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                       type="email" id="email" name="email" required placeholder="example@mail.com">
+            </div>
+
+            <!-- 国家/地区 -->
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-medium mb-2" for="country">
+                    国家/地区 *
+                </label>
+                <select class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        id="country" name="country" required>
+                    <option value="">请选择...</option>
+                    <option value="CN">中国</option>
+                    <option value="US">美国</option>
+                    <option value="JP">日本</option>
+                    <option value="DE">德国</option>
+                    <option value="OTHER">其他</option>
+                </select>
+            </div>
+
+            <!-- 满意度评分 -->
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-medium mb-2">
+                    满意度评分 *
+                </label>
+                <div class="flex justify-between text-sm">
+                    <label class="flex items-center"><input type="radio" name="rating" value="5" class="mr-1" required> 非常满意</label>
+                    <label class="flex items-center"><input type="radio" name="rating" value="4" class="mr-1"> 满意</label>
+                    <label class="flex items-center"><input type="radio" name="rating" value="3" class="mr-1"> 一般</label>
+                    <label class="flex items-center"><input type="radio" name="rating" value="2" class="mr-1"> 不满意</label>
+                    <label class="flex items-center"><input type="radio" name="rating" value="1" class="mr-1"> 非常不满意</label>
+                </div>
+            </div>
+
+            <!-- 反馈意见 -->
+            <div class="mb-6">
+                <label class="block text-gray-700 text-sm font-medium mb-2" for="feedback">
+                    反馈意见
+                </label>
+                <textarea class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                          id="feedback" name="feedback" rows="3" placeholder="请留下您的宝贵意见..."></textarea>
+            </div>
+
+            <!-- 下载格式选择 -->
+            <div class="mb-6">
+                <label class="block text-gray-700 text-sm font-medium mb-2" for="format">
+                    选择数据下载格式
+                </label>
+                <select class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        id="format" name="format">
+                    <option value="json">JSON格式 (推荐)</option>
+                    <option value="txt">纯文本格式 (TXT)</option>
+                    <option value="csv">表格格式 (CSV)</option>
+                </select>
+            </div>
+
+            <!-- 提交按钮 -->
+            <button type="submit"
+                    class="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold py-3 px-4 rounded-lg shadow transition duration-200">
+                ✅ 提交问卷并下载数据
+            </button>
+        </form>
+
+        <p class="text-xs text-gray-500 text-center mt-6">
+            提示：您的所有数据仅在您自己的浏览器中处理，不会被上传到任何服务器。
+        </p>
+    </div>
+
+    <!-- 引入我们自己的JavaScript代码 -->
+    <script src="script.js"></script>
+</body>
+</html>
