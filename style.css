@@ -1,0 +1,12 @@
+/* 为移动端优化的一些补充样式 */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    -webkit-tap-highlight-color: transparent; /* 移除移动端点击高亮 */
+}
+
+/* 让单选/复选框在移动端更易点击 */
+input[type="radio"],
+input[type="checkbox"] {
+    transform: scale(1.2);
+    margin-right: 8px;
+}
